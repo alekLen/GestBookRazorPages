@@ -23,7 +23,7 @@
                     @if (Context.Session.GetString("login") != null)
                     {
                        
-                       <form method="post" asp-page="Login">
+                       <form method="get" asp-page="Logout">
                               <div class="navbar-collapse collapse d-sm-inline-flex c c1">
                             <span style="margin-left:50px;">
                                 Здравствуйте, @Context.Session.GetString("login")&nbsp;&nbsp;
