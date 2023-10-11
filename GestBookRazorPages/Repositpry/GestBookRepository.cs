@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using GestBookRazorPages.Models;
 namespace GestBookRazorPages.Repositpry
 {
     public class GestBookRepository : IRepository

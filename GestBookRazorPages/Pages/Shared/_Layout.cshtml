@@ -23,8 +23,7 @@
                     @if (Context.Session.GetString("login") != null)
                     {
                        
-                        @using (Html.BeginForm("Logout", "Login", FormMethod.Get))
-                        {
+                       <form method="post" asp-page="Login">
                               <div class="navbar-collapse collapse d-sm-inline-flex c c1">
                             <span style="margin-left:50px;">
                                 Здравствуйте, @Context.Session.GetString("login")&nbsp;&nbsp;
@@ -33,16 +32,16 @@
                                 <input type="submit" value="Выйти" />
                                 </div>
                             </div>
-                        }
+                        </form>
 
                     }
                     else{ 
                     <ul class="navbar-nav flex-grow-1 c c1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark card2" asp-area="" asp-controller="Login" asp-action="Login">Войти</a>
+                            <a class="nav-link text-dark card2" asp-area="" asp-page="Login">Войти</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark card2" asp-area="" asp-controller="Login" asp-action="Registration">Зарегестрироваться</a>
+                            <a class="nav-link text-dark card2" asp-area="" asp-page="Registration">Зарегестрироваться</a>
                         </li>
                     </ul>
                     }
@@ -58,7 +57,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - GestBookRazorPages - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2023 - GestBookRazorPages 
         </div>
     </footer>
 

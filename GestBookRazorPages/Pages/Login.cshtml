@@ -1,0 +1,35 @@
+﻿@page
+@model GestBookRazorPages.Pages.LoginModel
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        @if (HttpContext.Session.GetString("login") == null)
+        {
+            @Html.ValidationSummary(true, "")
+            <div>
+                @Html.LabelFor(model => model.log.Login)
+                <div>
+                    @Html.EditorFor(model => model.log.Login)
+                    @Html.ValidationMessageFor(model => model.log.Login, "")
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.log.Password)
+                <div>
+                    @Html.PasswordFor(model => model.log.Password)
+                    @Html.ValidationMessageFor(model => model.log.Password, "")
+                </div>
+            </div>
+
+            <div>
+                <br>
+                <div>
+                    <input type="submit" value="Войти" />
+                </div>
+            </div>
+        }
+
+    </div>
+}

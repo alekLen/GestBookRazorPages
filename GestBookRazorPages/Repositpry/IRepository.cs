@@ -1,4 +1,4 @@
-﻿
+﻿using GestBookRazorPages.Models;
 namespace GestBookRazorPages.Repositpry
 {
     public interface IRepository
