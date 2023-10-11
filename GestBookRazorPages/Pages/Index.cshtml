@@ -9,19 +9,18 @@
 </div>
 @if (this.HttpContext.Session.GetString("login") != null)
 {
-   
-    @using (Html.BeginForm("AddMessage", "Login", FormMethod.Get)){
 
+    <form method="post" asp-page="Message">
         <br>
         <br>
         <div class="card">
-                @Html.TextAreaFor(model => model.message.Text)
+                <textarea name="text"></textarea>          
             </div>
         <div>
             <br>
             <input type="submit" value="Добавить отзыв" />
         </div>
-    }
+    </form>
   
 }
 <hr />
