@@ -6,6 +6,7 @@ namespace GestBookRazorPages.Pages
 {
     public class RegistrationModel : PageModel
     {
+        [BindProperty]
         public RegisterModel reg { get; set; }
         public void OnGet()
         {

@@ -5,27 +5,27 @@
     <div class="card">
         @Html.ValidationSummary(true, "")
         <div>
-            @Html.DisplayNameFor(model => model.Login)
+            @Html.DisplayNameFor(model => model.reg.Login)
             <div>
-                @Html.EditorFor(model => model.Login)
-                <span asp-validation-for="Login" class="text-danger"></span>
+                @Html.EditorFor(model => model.reg.Login)
+                @Html.ValidationMessageFor(model => model.reg.Login, "")
             </div>
         </div>
 
         <div>
-            @Html.DisplayNameFor(model => model.Password)
+            @Html.DisplayNameFor(model => model.reg.Password)
             <div>
-                @Html.PasswordFor(model => model.Password, new { id = "Password" })
-                <span asp-validation-for="Password" class="text-danger"></span>
+                @Html.PasswordFor(model => model.reg.Password, new { id = "Password" })
+                @Html.ValidationMessageFor(model => model.reg.Password, "")
             </div>
         </div>
 
         <div>
-            @Html.DisplayNameFor(model => model.PasswordConfirm)
+            @Html.DisplayNameFor(model => model.reg.PasswordConfirm)
 
             <div>
-                @Html.PasswordFor(model => model.PasswordConfirm)
-                <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+                @Html.PasswordFor(model => model.reg.PasswordConfirm)
+                @Html.ValidationMessageFor(model => model.reg.PasswordConfirm, "")
             </div>
         </div>
 
