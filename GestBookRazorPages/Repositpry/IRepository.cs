@@ -1,4 +1,5 @@
-﻿namespace GestBookRazorPages.Repositpry
+﻿
+namespace GestBookRazorPages.Repositpry
 {
     public interface IRepository
     {
