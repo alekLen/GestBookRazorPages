@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 
+
 // Получаем строку подключения из файла конфигурации
 
 var connection = String.Empty;
@@ -15,6 +16,7 @@ if (builder.Environment.IsDevelopment())
 }
 else
 {
+    builder.Configuration.AddEnvironmentVariables().AddJsonFile("appsettings.json");
     connection = Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING");
 }
 
