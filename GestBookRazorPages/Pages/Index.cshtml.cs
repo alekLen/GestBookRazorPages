@@ -17,8 +17,21 @@ namespace GestBookRazorPages.Pages
 
         public async Task<IActionResult> OnGet()
         {
-            var ms = await rep.GetMessage();
-            list = ms;
+            try
+            {
+                var ms = await rep.GetMessage();
+                list = ms;
+            }
+            catch (Exception ex)
+            {
+                Message m=new Message();
+                m.MessageDate = "0/0/0";
+                m.Text = ex.Message;
+                User u=new User();
+                u.Name = "admin";
+                m.user = u;
+                list.Add(m);
+            }
             return Page();
         }
     }

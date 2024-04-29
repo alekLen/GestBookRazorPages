@@ -23,8 +23,9 @@
     </form>
   
 }
+
 <hr />
-@try{ 
+
 @foreach(var m in Model.list)
 {
     <div >
@@ -33,9 +34,5 @@
          <div class="c">@m.MessageDate</div>
      </div>
      <hr />
-    }
 }
-catch(Exception e)
-{
-   <div>@e.Message</div> 
-}
+
