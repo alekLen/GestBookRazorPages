@@ -42,7 +42,7 @@ namespace GestBookRazorPages.Pages
                 u.Name = "admin";
                 message.user = u;
                 list.Add(message);
-                 rep = context;
+                // rep = context;
             }
             catch (Exception ex)
             {
