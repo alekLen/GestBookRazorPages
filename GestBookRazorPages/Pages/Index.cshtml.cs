@@ -18,9 +18,35 @@ namespace GestBookRazorPages.Pages
         public async Task<IActionResult> OnGet()
         {
             try
-            {             
-                var ms = await rep.GetMessage();
-                list = ms;
+            {
+                if (rep == null)
+                {
+                    list = new List<Message>();
+                    Message m = new Message();
+                    m.MessageDate = "00/00/00";
+                    m.Text = "репозиторий !";
+                    User u = new User();
+                    u.Name = "admin";
+                    m.user = u;
+                    list.Add(m);
+                }
+                else
+                {
+                    list = new List<Message>();
+                    var ms = await rep.GetMessage();
+                    list = ms;
+                    if (ms.Count == 0)
+                    {
+                        list = new List<Message>();
+                        Message m = new Message();
+                        m.MessageDate = "00/00/00";
+                        m.Text = "Пусто";
+                        User u = new User();
+                        u.Name = "admin";
+                        m.user = u;
+                        list.Add(m);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -33,6 +59,7 @@ namespace GestBookRazorPages.Pages
                 m.user = u;
                 list.Add(m);
             }
+
             return Page();
         }
     }
