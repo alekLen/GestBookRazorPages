@@ -8,13 +8,13 @@ namespace GestBookRazorPages.Pages
     public class IndexModel : PageModel
     {
         //IRepository rep;
-        //public List<Message> list { set; get; }
-        //public Message message { set; get; }
+       public List<Message> list { set; get; }
+        public Message message { set; get; }
         public IndexModel(IRepository context)
         {
             //try { 
-            //list = new List<Message>();
-            //message = new Message();
+            list = new List<Message>();
+            message = new Message();
             //rep = context;
             //}
             //catch (Exception ex)
