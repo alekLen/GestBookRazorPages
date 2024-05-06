@@ -31,70 +31,70 @@ namespace GestBookRazorPages.Pages
                 list.Add(message);
             }
         }
-        //public IndexModel(IRepository context)
-        //{
-        //    try
-        //    {
-        //        list = new List<Message>();
-        //        message = new Message();
-        //        message.Text = "конструктор с параметром ";
-        //        rep = context;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        list = new List<Message>();
-        //        message = new Message();
-        //        message.MessageDate = "0/0/0";
-        //        message.Text = "конструктор  " + ex.Message;
-        //        User u = new User();
-        //        u.Name = "admin";
-        //        message.user = u;
-        //        list.Add(message);
-        //    }
-        //}
-
-        public async Task<IActionResult> OnGet()
+        public IndexModel(IRepository context)
         {
             try
             {
-                if (rep == null)
-                {
-
-
-                    message.MessageDate = "00/00/00";
-                    message.Text += "репозиторий !";
-                    User u = new User();
-                    u.Name = "admin";
-                    message.user = u;
-                    list.Add(message);
-                }
-                else
-                {
-
-                    var ms = await rep.GetMessage();
-                    list = ms;
-                    if (ms.Count == 0)
-                    {
-
-                        message.MessageDate = "00/00/00";
-                        message.Text = "Пусто";
-                        User u = new User();
-                        u.Name = "admin";
-                        message.user = u;
-                        list.Add(message);
-                    }
-                }
+                list = new List<Message>();
+                message = new Message();
+                message.Text = "конструктор с параметром ";
+                rep = context;
             }
             catch (Exception ex)
             {
-
+                list = new List<Message>();
+                message = new Message();
                 message.MessageDate = "0/0/0";
-                message.Text = ex.Message;
+                message.Text = "конструктор  " + ex.Message;
                 User u = new User();
                 u.Name = "admin";
                 message.user = u;
                 list.Add(message);
             }
+        }
+
+        public async Task<IActionResult> OnGet()
+        {
+            //try
+            //{
+            //    if (rep == null)
+            //    {
+
+
+            //        message.MessageDate = "00/00/00";
+            //        message.Text += "репозиторий !";
+            //        User u = new User();
+            //        u.Name = "admin";
+            //        message.user = u;
+            //        list.Add(message);
+            //    }
+            //    else
+            //    {
+
+            //        var ms = await rep.GetMessage();
+            //        list = ms;
+            //        if (ms.Count == 0)
+            //        {
+
+            //            message.MessageDate = "00/00/00";
+            //            message.Text += "Пусто";
+            //            User u = new User();
+            //            u.Name = "admin";
+            //            message.user = u;
+            //            list.Add(message);
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    message.MessageDate = "0/0/0";
+            //    message.Text = ex.Message;
+            //    User u = new User();
+            //    u.Name = "admin";
+            //    message.user = u;
+            //    list.Add(message);
+            //}
 
             return Page();
         }
