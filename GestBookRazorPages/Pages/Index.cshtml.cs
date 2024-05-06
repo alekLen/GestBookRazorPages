@@ -16,6 +16,7 @@ namespace GestBookRazorPages.Pages
             {
                 list = new List<Message>();
                 message = new Message();
+                message.Text = "конструктор без параметров ";
                // rep = context;
             }
             catch (Exception ex)
@@ -24,6 +25,27 @@ namespace GestBookRazorPages.Pages
                 message = new Message();
                 message.MessageDate = "0/0/0";
                 message.Text ="конструктор  "+ ex.Message;
+                User u = new User();
+                u.Name = "admin";
+                message.user = u;
+                list.Add(message);
+            }
+        }
+        public IndexModel(IRepository context)
+        {
+            try
+            {
+                list = new List<Message>();
+                message = new Message();
+                message.Text = "конструктор с параметром ";
+                rep = context;
+            }
+            catch (Exception ex)
+            {
+                list = new List<Message>();
+                message = new Message();
+                message.MessageDate = "0/0/0";
+                message.Text = "конструктор  " + ex.Message;
                 User u = new User();
                 u.Name = "admin";
                 message.user = u;
@@ -40,7 +62,7 @@ namespace GestBookRazorPages.Pages
 
 
                     message.MessageDate = "00/00/00";
-                    message.Text = "репозиторий !";
+                    message.Text += "репозиторий !";
                     User u = new User();
                     u.Name = "admin";
                     message.user = u;
