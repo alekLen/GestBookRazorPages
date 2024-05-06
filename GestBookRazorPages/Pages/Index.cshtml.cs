@@ -12,7 +12,22 @@ namespace GestBookRazorPages.Pages
         public Message message { set; get; }
         public IndexModel(IRepository context)
         {
+            try { 
+            list = new List<Message>();
+            message = new Message();
             rep = context;
+            }
+            catch (Exception ex)
+            {
+                list = new List<Message>();
+                message = new Message();
+                message.MessageDate = "0/0/0";
+                message.Text = ex.Message;
+                User u = new User();
+                u.Name = "admin";
+                message.user = u;
+                list.Add(message);
+            }
         }
 
         public async Task<IActionResult> OnGet()
@@ -21,43 +36,41 @@ namespace GestBookRazorPages.Pages
             {
                 if (rep == null)
                 {
-                    list = new List<Message>();
-                    Message m = new Message();
-                    m.MessageDate = "00/00/00";
-                    m.Text = "репозиторий !";
+
+
+                    message.MessageDate = "00/00/00";
+                    message.Text = "репозиторий !";
                     User u = new User();
                     u.Name = "admin";
-                    m.user = u;
-                    list.Add(m);
+                    message.user = u;
+                    list.Add(message);
                 }
                 else
                 {
-                    list = new List<Message>();
+                   
                     var ms = await rep.GetMessage();
                     list = ms;
                     if (ms.Count == 0)
                     {
-                        list = new List<Message>();
-                        Message m = new Message();
-                        m.MessageDate = "00/00/00";
-                        m.Text = "Пусто";
+
+                        message.MessageDate = "00/00/00";
+                        message.Text = "Пусто";
                         User u = new User();
                         u.Name = "admin";
-                        m.user = u;
-                        list.Add(m);
+                        message.user = u;
+                        list.Add(message);
                     }
                 }
             }
             catch (Exception ex)
             {
-                list = new List<Message>();
-                Message m=new Message();
-                m.MessageDate = "0/0/0";
-                m.Text = ex.Message;
+               
+                message.MessageDate = "0/0/0";
+                message.Text = ex.Message;
                 User u=new User();
                 u.Name = "admin";
-                m.user = u;
-                list.Add(m);
+                message.user = u;
+                list.Add(message);
             }
 
             return Page();
