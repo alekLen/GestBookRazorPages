@@ -38,7 +38,11 @@ namespace GestBookRazorPages.Pages
                 list = new List<Message>();
                 message = new Message();
                 message.Text = "конструктор с параметром ";
-                rep = context;
+                User u = new User();
+                u.Name = "admin";
+                message.user = u;
+                list.Add(message);
+                 rep = context;
             }
             catch (Exception ex)
             {
