@@ -18,12 +18,13 @@ namespace GestBookRazorPages.Pages
         public async Task<IActionResult> OnGet()
         {
             try
-            {
+            {             
                 var ms = await rep.GetMessage();
                 list = ms;
             }
             catch (Exception ex)
             {
+                list = new List<Message>();
                 Message m=new Message();
                 m.MessageDate = "0/0/0";
                 m.Text = ex.Message;
