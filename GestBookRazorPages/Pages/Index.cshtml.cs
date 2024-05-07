@@ -10,39 +10,14 @@ namespace GestBookRazorPages.Pages
         IRepository? rep;
         public List<Message> list { set; get; }
         public Message message { set; get; }
-        //public IndexModel()
-        //{
-        //    try
-        //    {
-        //        list = new List<Message>();
-        //        message = new Message();
-        //        message.Text = "конструктор без параметров ";
-        //       // rep = context;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        list = new List<Message>();
-        //        message = new Message();
-        //        message.MessageDate = "0/0/0";
-        //        message.Text ="конструктор  "+ ex.Message;
-        //        User u = new User();
-        //        u.Name = "admin";
-        //        message.user = u;
-        //        list.Add(message);
-        //    }
-        //}
-        public IndexModel(IRepository context)
+        public IndexModel()
         {
             try
             {
                 list = new List<Message>();
                 message = new Message();
-                message.Text = "конструктор с параметром ";
-                User u = new User();
-                u.Name = "admin";
-                message.user = u;
-                list.Add(message);
-                // rep = context;
+                message.Text = "конструктор без параметров ";
+               
             }
             catch (Exception ex)
             {
@@ -56,6 +31,31 @@ namespace GestBookRazorPages.Pages
                 list.Add(message);
             }
         }
+        //public IndexModel(IRepository context)
+        //{
+        //    try
+        //    {
+        //        list = new List<Message>();
+        //        message = new Message();
+        //        message.Text = "конструктор с параметром ";
+        //        User u = new User();
+        //        u.Name = "admin";
+        //        message.user = u;
+        //        list.Add(message);
+        //        // rep = context;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        list = new List<Message>();
+        //        message = new Message();
+        //        message.MessageDate = "0/0/0";
+        //        message.Text = "конструктор  " + ex.Message;
+        //        User u = new User();
+        //        u.Name = "admin";
+        //        message.user = u;
+        //        list.Add(message);
+        //    }
+        //}
 
         public async Task<IActionResult> OnGet()
         {
