@@ -7,7 +7,11 @@ namespace GestBookRazorPages.Repositpry
         GestBookContext db;
         public GestBookRepository(GestBookContext context)
         {
-            db = context;
+            try
+            {
+                db = context;
+            }
+            catch(Exception ex) { throw ex; }
         }
         public async Task<Salt> GetSalt(User u)
         {

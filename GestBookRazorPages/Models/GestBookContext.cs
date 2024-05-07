@@ -7,7 +7,12 @@ namespace GestBookRazorPages.Models
         public GestBookContext(DbContextOptions<GestBookContext> options)
            : base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
+            try
+            {
+                Database.EnsureCreated();
+            }
+            catch (Exception ex) { throw ex; }
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Salt> Salts { get; set; }
