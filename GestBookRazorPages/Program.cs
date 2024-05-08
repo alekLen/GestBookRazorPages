@@ -17,7 +17,7 @@ if (builder.Environment.IsDevelopment())
 else
 {
     builder.Configuration.AddEnvironmentVariables().AddJsonFile("appsettings.Development.json");
-    connection = builder.Configuration.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING");
+    connection = builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING");
 }
 
 //string? connection = builder.Configuration.GetConnectionString("DefaultConnection");
