@@ -81,7 +81,33 @@ body {
     justify-content: flex-end;
     width: 700px;
 }
-
+.container{
+    margin-left:0;
+}
 .c1 {
     width: 500px;
+}
+@media (max-width: 400px) {
+    
+    div{
+        margin:0;
+    }
+    a{
+        max-width:max-content;
+    }
+    .card{
+        width:280px;       
+    }
+   
+    .card1 {
+        width: 280px;
+    }
+    body {
+        margin: 20px;            
+    }
+}
+@media (max-width: 700px) {
+    body {
+        margin: 20px;
+    }
 }
