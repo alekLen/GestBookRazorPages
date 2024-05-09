@@ -30,8 +30,6 @@ builder.Services.AddDbContext<GestBookContext>(options => options.UseSqlServer(c
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<GestBookContext>();
 
-//builder.Services.AddIdentity<IdentityUser, IdentityUser>(options => options.SignIn.RequireConfirmedAccount=true).AddUserStore<GestBookContext>();
-
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
